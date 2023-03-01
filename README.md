@@ -12,6 +12,12 @@
 * 浅拷贝：使用copy模块的copy函数，对象包含的子对象内容不拷贝
 * 参考文章：[深浅拷贝](https://www.runoob.com/w3cnote/python-understanding-dict-copy-shallow-or-deep.html "click")
 
+### Is和==
+
+* is 判断两个变量引用对象是否为同一个
+  * a is b：相当于 **id(a)==id(b)**
+* **==** 用于判断引用变量的值是否相等
+
 ## 正则表达式
 
 ### 基础语法
