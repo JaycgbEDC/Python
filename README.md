@@ -46,6 +46,13 @@
 
 ## 模块部分
 
+### math库
+
+#### gcd
+
+* from functools import gcd
+  * gcd(a,b)表示求a和b的最大公约数
+
 ### Random模块
 
 1. random.random(): 产生[0, 1)之间浮点数
@@ -75,6 +82,13 @@
 
 * 计数器，是dict的子类，用于**计数可哈希对象**，它是一个集合，元素像字典键(key)一样存储，它们的计数存储为值
 * Counter(list)：统计list中元素个数，返回字典
+
+### itertools库
+
+#### permutation
+
+* from itertools import permutation:
+  * permutation(l)：返回列表l的全排列
 
 ## 文件操作部分
 
