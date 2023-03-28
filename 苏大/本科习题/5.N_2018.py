@@ -4,21 +4,13 @@ import re
 
 
 def func1():
-    """ 判断整数m、n是否大于1且为质数 """
-    s = input('输入整数m和n，用逗号分开: ')
-    l = list(map(int, s.split(',')))
-    m, n = l[0], l[1]
-    if m <=1 or n <= 1:
-        return None
-    def isprime(a):
-        for i in range(2, int(math.sqrt(a) + 1)):
-            if a % i == 0:
-                return False
-        return True
-    if isprime(m) and isprime(n):
-        return True
-    else:
+    """ 判断整数m、n是否互质: 运用求最大公约数方法 """
+    m, n = eval(input())
+    if m <= 1 or n <= 1:
         return False
+    while n:
+        m, n = n, m % n
+    return m == 1
 
 
 def func2():
@@ -42,7 +34,7 @@ def func3(mat1, mat2):
     m, n = len(mat1), len(mat2)
     for i in range(m):
         mat3.append([])
-        for j in range(n):
+        for j in range(len(mat2[0])):
             v = [mat2[k][j] for k in range(n)]
             mat3[i].append(sum([v1 * v2 for v1, v2 in zip(mat1[i], v)]))
     return mat3
@@ -117,9 +109,9 @@ def func8():
 
 
 if __name__ == '__main__':
-    # print(func1())
+    print(func1())
     # print(func2())
-    print(func3([[1, 2], [1, 3]], [[1, 1], [1, 0]]))
+    # print(func3([[1, 2], [1, 3]], [[1, 1, 1], [1, 1, 1]]))
     # print(func4())
     # print(func5())
     # print(func6())

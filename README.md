@@ -125,10 +125,11 @@
 
 ![1679798315988](image/README/1.file.png)
 
-1. open('文件名', mode)：mode可为r、w，b表示二进制文件
+1. open('文件名', mode, encoding)：mode可为r、w，b表示二进制文件
    * r和w都会将文件指针放在开头，即文件存在就删除所有内容，不存在就创建
    * +号可与rw结合，如与r+、w+表可读可写
    * a是追加模式，文件指针会放在文件末尾
+   * 注意：若文件中包含中文而读取时或写入时未带encoding='utf-8'则会乱码
 2. 文件对象方法：
    * readline读一行，readlines读每一行返回列表
    * write(s)表示把s写入文件，**不会加换行**，writelines(l)把字符串列表l写入文件，也不加换行
