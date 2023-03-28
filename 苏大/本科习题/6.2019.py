@@ -8,11 +8,10 @@ def func1():
     l = list(map(int, s.split(',')))
     if -1 < l[0] < 1 and -1 < l[1] < 1:
         return 1
-    elif (l[0] == -1 or l[0] == 1) and -1 <= l[1] <= 1:
-        return 0
-    else:
+    elif (l[0] < -1 or l[0] > 1) or (l[1] < -1 or l[1] > 1):
         return -1
-
+    else:
+        return 0
 
 def func2():
     l = list(map(int, input('输入三个整数：').split(',')))
