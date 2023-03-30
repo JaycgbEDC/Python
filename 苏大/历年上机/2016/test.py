@@ -33,7 +33,7 @@ def func(fileName):
         with open('output.txt', 'w') as f:
             for i in range(5):
                 f.write(temp[i] + ', ' + str(res[temp[i]]) + '\n')
-            f.write('黎萧')
+            f.write('\n')
 
 
 func("input.txt")
