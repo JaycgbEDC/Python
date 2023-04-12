@@ -113,6 +113,10 @@ def init_db(path):
 
 
 def save_db(data_list, path_db):
+    """ 将数据保存到数据库
+    :param data_list
+    :param path_db
+    """
     init_db(path_db)
     conn = sqlite3.connect(path_db)
     c = conn.cursor()
