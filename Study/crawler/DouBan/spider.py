@@ -93,7 +93,7 @@ def init_db(path):
     :param path
     """
     conn = sqlite3.connect(path)
-    c = conn.cursor()
+    cur = conn.cursor()
     sql = '''
         create table movie250
         (id integer primary key autoincrement,
@@ -107,8 +107,9 @@ def init_db(path):
         actor_year text
         )
     '''
-    c.execute(sql)
+    cur.execute(sql)
     conn.commit()
+    cur.close()
     conn.close()
 
 
@@ -119,7 +120,7 @@ def save_db(data_list, path_db):
     """
     init_db(path_db)
     conn = sqlite3.connect(path_db)
-    c = conn.cursor()
+    cur = conn.cursor()
     for l in data_list:
         for i in range(len(l)):
             if i == 2 or i == 3:
@@ -129,8 +130,9 @@ def save_db(data_list, path_db):
             insert into movie250 (movie_title_ch, movie_title_origin, score, eval_num, movie_info, info_link, img_link, actor_year)
             values (%s)
         ''' % (','.join(l))
-        c.execute(sql)
+        cur.execute(sql)
         conn.commit()
+    cur.close()
     conn.close()
 
 
