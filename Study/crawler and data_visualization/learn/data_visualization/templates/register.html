@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{ url_for('welcom_tem_result') }}" method="post">
+        <p>姓名：<input type="text" name="name"></p>  <!--表单返回的是字典，键为input中的name值，值为输入的内容-->
+        <p>年龄：<input type="text" name="age"></p>
+        <p>性别：<input type="text" name="sex"></p>
+        <p>地址：<input type="text" name="address"></p>
+        <p><input type="submit" value="提交"></p>
+    </form>
+</body>
+</html>

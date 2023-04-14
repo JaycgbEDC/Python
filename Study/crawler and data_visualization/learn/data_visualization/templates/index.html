@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    今天是{{ var }}, 欢迎光临！<br/>  <!--用两个大括号表示变量-->
+    今天值班的人员是：<br/>
+    {% for i in l %}  <!--用大括号加百分号表示控制结构-->
+        <li> {{ i }} </li>
+    {% endfor %}
+    任务：<br/>
+    <table border="1">
+        {% for key, value in task.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
