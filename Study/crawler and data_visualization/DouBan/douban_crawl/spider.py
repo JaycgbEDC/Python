@@ -58,7 +58,7 @@ def getdata(base_url):
             data.append(eva_num[0])
             overview = pat_overview.findall(item)  # 添加电影的简介
             if len(overview) == 0:
-                data.append('暂无')
+                data.append(' ')
             else:
                 data.append(overview[0].replace('。', ''))
             film_link = pat_link.findall(item)  # 添加电影的介绍链接
@@ -138,10 +138,10 @@ def save_db(data_list, path_db):
 
 def main():
     base_url = 'https://movie.douban.com/top250?start='
-    # path_xls = r'./douban_top250.xls'
+    path_xls = r'./douban_top250.xls'
     path_db = r'./douban_top250.db'
     data_list = getdata(base_url)  # 获取网页内容
-    # save_xls(data_list, path_xls)  # 保存为xls表
+    save_xls(data_list, path_xls)  # 保存为xls表
     save_db(data_list, path_db)
     
 
