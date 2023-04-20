@@ -2,12 +2,16 @@
 
 * [X] python基础
 * [ ] python爬虫
-  * [X] urllib
-  * [X] requests
+  * [X] urllib库、requests库
+  * [X] 分词：beatifulsoup、re、xpath
+  * [X] 反反爬：headers、proxies、referer、AES加密
+  * [X] 学习/练手项目：doubantop250、电影天堂、网易云评论
 * [ ] python数据可视化
   * [X] Flask框架+Echarts+wordcloud
 * [ ] 数据库编程
   * [X] SQLite/excel表
+* [ ] 密码学编程
+  * [X] AES
 
 ## 项目
 
