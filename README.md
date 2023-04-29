@@ -15,6 +15,8 @@
 * [ ] 多线程与多进程
   * [X] threading.Thread库、mutiprocessing.Process库
   * [X] 线程池、进程池
+* [ ] 科学计算与可视化
+  * [ ] Numpy
 
 ## 项目
 
