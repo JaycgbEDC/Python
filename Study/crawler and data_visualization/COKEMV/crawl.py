@@ -42,33 +42,33 @@ def download_m3u8(url):
     print("download_m3u8 file succeed!")
 
 
-async def download_video(url, name):
+async def download_video(url, name, session):
     """  
     params:
     url: the url of ts
-    name: like "001.ts"
+    name: ts name
+    session: avoid frequent request
     """
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
+    async with session.get(url) as response:
+        async with aiofiles.open("./video/" + name, "wb") as fp:
             content = await response.content.read()
-            async with aiofiles.open("./video/" + name, "wb") as fp:
-                await fp.write(content)
+            await fp.write(content)
+        print(f"{name}下载完毕！")
 
 
 async def main_download_video():
-    l = []
-    with open("./video.m3u8", "r") as fp:
-        for line in fp:
-            if line.startswith('#'):
-                continue
-            l.append(line.strip())  # 注意去掉空白换行符，否则url无效
-    print(l)
-    tasks = [asyncio.create_task(download_video(s, f"{index + 1:03d}.ts")) for index, s in enumerate(l)]  # 注意这里文件命名要写成001.ts而不是1.ts，不然用命令转为mp4会出错
-    await asyncio.wait(tasks)
+    tasks = []
+    async with aiohttp.ClientSession() as session:  # 提前准备好session
+        async with aiofiles.open("./video.m3u8", "r") as fp:
+            async for line in fp:
+                if line.startswith('#'):
+                    continue
+                line = line.strip()  # 注意去掉空白换行符，否则url无效
+                tasks.append(asyncio.create_task(download_video(line, line.split('/')[-1], session)))  
+            await asyncio.wait(tasks)
 
 
 def ts2mp4():
-    # os.system('copy /b D:\\Github\\PostG\\Python\\Study\\"crawler and data_visualization"\\COKEMV\\video\\*.ts D:\\Github\\PostG\\Python\\Study\\"crawler and data_visualization"\\COKEMV\\movie.mp4')
     os.system("copy /b .\\video\\*.ts .\\movie.mp4")
     print("convert done!")
 
