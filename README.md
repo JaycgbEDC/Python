@@ -7,7 +7,7 @@
   * [X] 反反爬：headers、proxies、referer、AES加密
   * [ ] 自动化：selenium
   * [ ] 学习/练手项目：doubantop250、电影天堂、网易云评论、异步爬取北京新发地、异步爬取百度小说
-    * [ ] [scrape书籍爬虫](Study\crawler%20and%20data_visualization\learn\崔庆才\1.%20scrape._spider.py "点击可达程序")：用到httpx库请求http2.0（分析network得知信息在json中）、多进程爬取503个页面、logging打印爬取信息，共爬取9040个json文件（成功1633，可能封ip了）并保存为了json文件
+    * [ ] [scrape书籍爬虫](Study/crawler%20and%20data_visualization/learn/崔庆才/1.%20scrape._spider.py "点击可达程序")：用到httpx库请求http2.0（分析network得知信息在json中）、多进程爬取503个页面、logging打印爬取信息，共爬取9040个json文件（成功1633，可能封ip了）并保存为了json文件
 * [ ] python数据可视化
   * [X] Flask框架+Echarts+wordcloud
 * [ ] 数据库编程
