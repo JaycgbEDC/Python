@@ -1,0 +1,56 @@
+w特征码："\u0077"
+w = h + u
+1. u->done!
+    u = new U()[“encrypt”](this[$_CBFJv(761)](t));
+
+    this[$_CBFJv(761)](t)的值：由4个t()连接的字符串
+    t的值：
+    (65536 * (1 + Math[“random”]()) | 0)["tostring"](16)["substring"](1)
+    所以：
+    function cal() {
+        let s = "";
+        for (let i = 0; i < 4; i++) {
+            s += (65536 * (1 + Math["random"]()) | 0)["toString"](16)["substring"](1);
+        }
+        return s; 
+    }
+    ->u = new U()[“encrypt”](cal());
+
+
+2. l->done
+    l = V["encrypt"](JSON.stringify(o), cal())
+        √(1). o是个对象：图片加载完后，每次滑动会变化的值有（userresponse、passtime、aa、rp）
+            {"lang":"zh-cn","userresponse":"c77ccc7771126","passtime":332,"imgload":41,"aa":"QL(!!Mtsss(!!($)39Fjr$zC*C","ep":{"v":"7.9.0","$_BIo":false,
+            "me":true,"tm":{"a":1686711866946,"b":0,"c":0,"d":0,"e":0,"f":1686711866952,"g":1686711866952,"h":1686711866952,"i":1686711866967,"j":1686711867017,
+            "k":1686711866967,"l":1686711867018,"m":1686711867432,"n":1686711867433,"o":1686711867445,"p":1686711867877,"q":1686711867877,"r":1686711867880,
+            "s":1686711867880,"t":1686711867880,"u":1686711867880},"td":-1},"h9s9":"1816378497","rp":"14ae20879da6010de81827963bdfbe4c"}
+
+            √a： userresponse = H(t, i["challenge"]);
+                √ 其中challenge是请求的时候获得的;
+                √ t = parseInt(_);
+                    _ = n["lastPoint"]["x"]  //猜测是滑动的距离（横向）
+                √ H可以导出为window.my_H
+
+            √b：passtime = a["$_CEDq"]  // 经测试，passtime为点击滑块开始到松开鼠标结束经过的时间(ms)
+
+            √c: 猜测aa值为轨迹，因为aa值长度与滑动距离有关（滑动越长aa越就越长）
+                aa = n[$_DAAAt(912)][$_CJJJp(1034)](n[$_DAAAt(912)][$_CJJJp(1069)](), n[$_DAAAt(71)][$_DAAAt(1091)], n[$_CJJJp(71)][$_DAAAt(389)]);
+                方法n[$_DAAAt(912)][$_CJJJp(1034)]：导出为window.my_aa
+                n[$_DAAAt(912)][$_CJJJp(1069)]()：可以导出为window.my_aa1，调用window.my_aa1()即可；
+                n[$_DAAAt(71)][$_DAAAt(1091)]：是加载页面时get.php?is的c值；
+                n[$_CJJJp(71)][$_DAAAt(389)]：是加载页面时get.php?is的s值；
+                所以：aa = window.my_aa(window.my_aa1(xxx), ..., ...)，其中xxx表示传递给函数与的轨迹数组
+        
+            √d：rp = X(i["gt"] + i["challenge"]["slice"](0, 32) + o["passtime"]);
+                参数都是已知的;
+                X方法可以导出为：window.my_X;
+
+        √(2). V["encrypt"]导出为window.my_v
+    所以 l = window.my_v(JSON.stringify(o), cal())  
+
+
+3. h->done
+    h = m["$_FEE"](l);
+    将m导出为：window.my_m
+        注意该函数中有this[$_GJJM(226)]，所以将其函数导出为window.my_m;
+    所以：h = window.my_m["$_FEE"](l);
