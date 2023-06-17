@@ -1,0 +1,14 @@
+注意：这里涉及到了webpack
+
+
+var u = new l.Wup;  --->想拿到l
+    1. 往上翻发现：l = t.taf.Taf，因此要拿t
+        但是t是传的参数，转换另一种方法：找到函数l.Wup，并且发现其位于wIU9对象中，而wIU9是包含着自执行函数的参数对象中
+        所以-->导出位于开头的加载器i：window.my_i = i
+        此时，window.my_i("wIU9")中包含有Wup
+    2. 构造发送内容r：
+        根据函数调用栈可以找到r定义位置，var n = new t.taf.HUYA.SendMessageReq;
+        所以要构造t.taf.HUYA.SendMessageReq，定位到其函数位于BvAJ中：n.SendMessageReq =...
+        此时，我们加载该对象：window.my_i("BvAJ")，发现var n = window.my_i("BvAJ").HUYA.SendMessageReq;
+
+        要注意的是：userId要重新写。
