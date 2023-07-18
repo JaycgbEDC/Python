@@ -41,3 +41,11 @@
 * [ ] [豆瓣](./Project/DouBan "点我")
 * [ ] [电影天堂](./Project/dytt89 "点我")
 * [ ] [网易云](./Project/netease "点我")
+
+## 爬虫学习之旅
+
+* b站看了入门视频
+* 崔老师的书
+* 韦世东
+* 志远
+* glidedsky练习平台
