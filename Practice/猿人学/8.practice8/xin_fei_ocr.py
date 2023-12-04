@@ -105,7 +105,7 @@ def get_result(universal_ocr, file_path):
         return json.loads(base64.b64decode(renew_text))
 
 
-def run_ocr(file_path):
+def run_ocr2(file_path):
     appid = "90da4be6"
     apisecret = "OWFkY2M2YmZmMmM3YzhkZjY3MDBhNjI3"
     apikey = "3258452594f046293036ce0134c29e1d"
@@ -115,6 +115,6 @@ def run_ocr(file_path):
 
 
 if __name__ == "__main__":
-    file_path = "./image/README/f-2.jpg"
-    res = run_ocr(file_path)
+    file_path = "/Users/kribe/Documents/Git/Python/Practice/猿人学/8.practice8/image/README/f-3.jpg"
+    res = run_ocr2(file_path)
     print(res)
